@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f0f4f8;
+            background-color: #f0f4f8;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -19,7 +19,7 @@
         }
 
         .container {
-            background: white;
+            background-color: white;
             width: 100%;
             max-width: 450px;
             padding: 25px;
@@ -37,7 +37,7 @@
             gap: 8px;
         }
 
-        input {
+        #taskInput {
             flex: 1;
             min-width: 0;
             padding: 12px;
@@ -50,14 +50,14 @@
             padding: 12px;
             border: none;
             border-radius: 6px;
-            background: #2563eb;
+            background-color: #2563eb;
             color: white;
             cursor: pointer;
             font-size: 14px;
         }
 
         button:hover {
-            background: #1d4ed8;
+            background-color: #1d4ed8;
         }
 
         ul {
@@ -85,11 +85,11 @@
         }
 
         .delete-btn {
-            background: #dc2626;
+            background-color: #dc2626;
         }
 
         .delete-btn:hover {
-            background: #b91c1c;
+            background-color: #b91c1c;
         }
     </style>
 </head>
@@ -104,6 +104,7 @@
                 id="taskInput"
                 placeholder="Enter a new task"
             >
+
             <button id="addButton">Add Task</button>
         </div>
 
@@ -130,11 +131,15 @@
 
             checkbox.type = "checkbox";
             taskName.textContent = taskText;
+
             deleteButton.textContent = "Delete";
             deleteButton.className = "delete-btn";
 
             checkbox.addEventListener("change", function () {
-                listItem.classList.toggle("completed", checkbox.checked);
+                listItem.classList.toggle(
+                    "completed",
+                    checkbox.checked
+                );
             });
 
             deleteButton.addEventListener("click", function () {
@@ -146,6 +151,7 @@
             listItem.appendChild(deleteButton);
 
             taskList.appendChild(listItem);
+
             taskInput.value = "";
             taskInput.focus();
         }
